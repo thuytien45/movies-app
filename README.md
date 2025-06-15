@@ -39,7 +39,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-> Please record screen to a GIF file and attach (link here)[/home/phucsaiyan/Documents/workspace/movies-app/Screencast from 2025-06-15 20-10-52.webm]
+> Please record screen to a GIF file and attach [link here](/home/phucsaiyan/Documents/workspace/movies-app/Screencast from 2025-06-15 20-10-52.gif)
 
 ## Introduction
 
