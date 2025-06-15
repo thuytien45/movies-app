@@ -40,7 +40,6 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 > Please record screen to a GIF file and attach ![link here](screenshot/preview.gif)
-> [link here](/home/phucsaiyan/Documents/workspace/movies-app/screenshot/preview.gif)
 
 ## Introduction
 
