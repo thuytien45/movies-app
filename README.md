@@ -39,14 +39,14 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-> Please record screen to a GIF file and attach ![link here](/home/phucsaiyan/Documents/workspace/movies-app/Screencast from 2025-06-15 20-10-52.gif)
+> Please record screen to a GIF file and attach ![link here](/home/phucsaiyan/Documents/workspace/movies-app/screenshot/preview.gif)
 
 ## Introduction
 
 ## 🔧 Setup Instructions
 
 1. **Clone the repo**
-   
+
    ```bash
    git clone https://github.com/your-username/movies-app.git
    cd movies-app
@@ -83,7 +83,9 @@ src/
 ├── App.tsx           # Router and layout wrapper
 └── main.tsx          # Entry point
 ```
+
 ---
+
 ## 📌 TODO / Future Enhancements
 
 - Add infinite scroll or pagination
@@ -91,4 +93,7 @@ src/
 - Add tests (Jest + React Testing Library)
 - Dark mode toggle
 - Better accessibility (a11y labels and focus outlines)
-````
+
+```
+
+```
