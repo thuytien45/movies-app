@@ -1,6 +1,10 @@
 @import './variables';
 
-body {
+body,
+html,
+#root {
+    height: 100%;
+    width: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     background: #111;

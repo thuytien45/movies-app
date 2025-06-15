@@ -1,0 +1,28 @@
+.tab-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    background: #1c1c1c;
+    border-bottom: 1px solid #333;
+}
+
+.tab {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background 0.3s, color 0.3s;
+
+    &:hover {
+        color: #fff;
+        background: #333;
+    }
+
+    &.active {
+        background: #fff;
+        color: #111;
+        font-weight: bold;
+    }
+}
