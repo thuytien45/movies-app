@@ -8,7 +8,7 @@ import './styles/main.scss';
 function App() {
   return (
     <Router>
-      <TabBar />
+      <TabBar/>
       <Routes>
         <Route path="/" element={<NowPlaying />} />
         <Route path="/top-rated" element={<TopRated />} />

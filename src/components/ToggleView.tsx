@@ -1,4 +1,4 @@
-import './ToggleView.scss';
+import '../styles/ToggleView.scss'; // Assuming you have styles for the toggle view
 
 interface Props {
   view: 'grid' | 'list';

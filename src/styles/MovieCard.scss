@@ -1,0 +1,67 @@
+.movie-img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.loaded {
+        opacity: 1;
+    }
+}
+// .movie-card.list {
+//     display: flex;
+//     align-items: flex-start;
+//     gap: 1rem;
+//     padding: 0.75rem;
+//     border-radius: 8px;
+//     background: #1d1d1d;
+//     transition: background 0.2s;
+//     max-height: 180px;
+//     /* 💡 keeps it compact */
+
+//     &:hover {
+//         background: #242424;
+//     }
+
+//     img {
+//         width: 120px;
+//         height: 180px;
+//         /* 💡 force same height as container */
+//         object-fit: cover;
+//         border-radius: 6px;
+//         flex-shrink: 0;
+//     }
+
+//     .info {
+//         flex: 1;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+
+//         h3 {
+//             font-size: 1rem;
+//             margin: 0 0 0.5rem;
+//         }
+
+//         p {
+//             margin: 0;
+//             font-size: 0.9rem;
+//             opacity: 0.8;
+//         }
+//     }
+
+//     @media (max-width: 480px) {
+//         flex-direction: column;
+//         align-items: center;
+//         max-height: none;
+
+//         img {
+//             width: 100%;
+//             max-width: 240px;
+//             height: auto;
+//         }
+
+//         .info {
+//             text-align: center;
+//             margin-top: 0.5rem;
+//         }
+//     }
+// }

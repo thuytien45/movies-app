@@ -1,47 +1,70 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
-import { fetchNowPlaying, searchMovies } from '../services/tmdbApi';
+import {
+  fetchNowPlaying,
+  searchMovies,
+} from '../services/tmdbApi';
 import type { Movie } from '../types';
-import MovieCard from '../components/MovieCard';
-import SearchBar from '../components/SearchBar';
+
+import MovieCard     from '../components/MovieCard';
+import SkeletonCard  from '../components/SkeletonCard';
+import SearchBar     from '../components/SearchBar';
+import ToggleView    from '../components/ToggleView';
 
 function NowPlaying() {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies]   = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  const [query, setQuery]     = useState('');
+  const [view, setView]       = useState<'grid' | 'list'>('grid');
+  const [error, setError]     = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const controller = new AbortController();   // ← cancels fetch if component unmounts
+    (async () => {
       try {
         setLoading(true);
-        const data = searchQuery
-          ? await searchMovies(searchQuery)
+        const data = query
+          ? await searchMovies(query)
           : await fetchNowPlaying();
         setMovies(data.results || []);
-      } catch (err) {
-        setError('Failed to fetch movies.');
+        setError(null);
+      } catch {
+        setError('Failed to fetch movies. Please try again.');
       } finally {
         setLoading(false);
       }
-    };
+    })();
+    return () => controller.abort();
+  }, [query]);
 
-    fetchData();
-  }, [searchQuery]);
+  /* ----- how many skeletons to render while loading ----- */
+  const skeletonCount = view === 'grid' ? 12 : 6;
+  const skeletons = Array.from({ length: skeletonCount });
 
   return (
     <>
-      <SearchBar onSearch={setSearchQuery} />
+      <SearchBar  onSearch={setQuery} />
+      <ToggleView view={view} onChange={setView} />
 
-      {loading && <p className="status">Loading…</p>}
-      {error && <p className="status error">{error}</p>}
-      {!loading && movies.length === 0 && <p className="status">No results found.</p>}
+      {/* -------- error state -------- */}
+      {error && !loading && (
+        <p className="status error">{error}</p>
+      )}
 
-      <div className="movie-list">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+      {/* -------- content / skeletons -------- */}
+      <div className={`movie-list ${view}`}>
+        {loading
+          ? skeletons.map((_, i) => (
+              <SkeletonCard key={i} view={view} />
+            ))
+          : movies.map((m) => (
+              <MovieCard key={m.id} movie={m} view={view} />
+            ))}
       </div>
+
+      {/* -------- empty-result state -------- */}
+      {!loading && !error && movies.length === 0 && (
+        <p className="status">No results found.</p>
+      )}
     </>
   );
 }
