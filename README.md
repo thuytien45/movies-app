@@ -46,12 +46,11 @@ Here's a walkthrough of implemented user stories:
 ## 🔧 Setup Instructions
 
 1. **Clone the repo**
+   
    ```bash
    git clone https://github.com/your-username/movies-app.git
    cd movies-app
    ```
-
-````
 
 2. **Install dependencies**
 
