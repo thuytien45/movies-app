@@ -1,0 +1,48 @@
+@import './variables';
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.movie-card {
+    background: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .info {
+        padding: 0.5rem;
+
+        h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        p {
+            margin: 0.2rem 0 0;
+            font-size: 0.9rem;
+        }
+    }
+}
